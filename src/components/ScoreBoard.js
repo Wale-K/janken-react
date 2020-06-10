@@ -4,13 +4,15 @@ class ScoreBoard extends React.Component {
         super(props)
     }
     render() {
+        console.log(this.props)
         return (
             <>
             <p>User</p>   
-            <p>0</p>      
+        <p>{this.props.userScore}</p>
+              
 
             <p>CPU</p>   
-            <p>0</p>      
+        <p>{this.props.cpuScore}</p>      
             </>
         )
     }
