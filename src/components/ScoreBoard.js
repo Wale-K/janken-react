@@ -6,14 +6,14 @@ class ScoreBoard extends React.Component {
     render() {
         return (
             <>
-            <p>User</p>   {/* User Labal */}
-            <p>0</p>      {/* User Score */}
+            <p>User</p>   
+            <p>0</p>      
 
-            <p>CPU</p>    {/* CPU Label */}
-            <p>0</p>      {/* CPU Score */}
+            <p>CPU</p>   
+            <p>0</p>      
             </>
         )
     }
 }
 
-export  default ScoreBoard;
+export default ScoreBoard;
