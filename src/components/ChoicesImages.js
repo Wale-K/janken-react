@@ -1,7 +1,8 @@
 import React from "react";
 
-// const choices = ["rock", "paper", "scissors"];
+const choices = ["rock", "paper", "scissors"];
 // const cpuChoice = choices[Math.floor(Math.random() * choices.length)];
+
 // If I use line 3 & 4 in the global scope the function below flops. When used locally it works. Why?
 
 class ChoicesImages extends React.Component {
@@ -10,27 +11,28 @@ class ChoicesImages extends React.Component {
     this.handleChoice = this.handleChoice.bind(this);
   }
 
-  handleChoice = (event) => {
-    const choices = ["rock", "paper", "scissors"];
-    const cpuChoice = choices[Math.floor(Math.random() * choices.length)]; 
+  handleChoice = () => {
+    const { name } = this.props;
 
-    if (event === cpuChoice) {
-      console.log(`Player: ${event}. CPU: ${cpuChoice} DRAW.`); // draw works.
-    // this.setState(this.props.userScore = this.props.userScore + 1) --> How can I change the state?
+    const cpuChoice = choices[Math.floor(Math.random() * choices.length)];
 
+    if (name === cpuChoice) {
+      console.log(`Player: ${name}. CPU: ${cpuChoice} DRAW.`); // draw works.
+      // this.setState(this.props.userScore = this.props.userScore + 1) --> How can I change the state?
     } else if (
-
-      (event === choices[0] && cpuChoice === "scissors") ||
-      (event === choices[1] && cpuChoice === "rock") ||
-      (event === choices[2] && cpuChoice === "paper")
+      (name === "rock" && cpuChoice === "scissors") ||
+      (name === "paper" && cpuChoice === "rock") ||
+      (name === "scissors" && cpuChoice === "paper")
     ) {
-      console.log(`Player: ${event}. CPU: ${cpuChoice} WIN.`);
-    } else console.log(`Player: ${event}. CPU: ${cpuChoice} LOSE.`);
+      console.log(`Player: ${name}. CPU: ${cpuChoice} WIN.`);
+    } else console.log(`Player: ${name}. CPU: ${cpuChoice} LOSE.`);
   };
+
+  // Depending on the outcome of the duel, a message needs to be displayed (win? loss? draw?)
 
   render() {
     return (
-      <button onClick={() => this.handleChoice(this.props.name)}>
+      <button onClick={this.handleChoice}>
         <img src={this.props.image} alt={this.props.name} />
       </button>
     );
