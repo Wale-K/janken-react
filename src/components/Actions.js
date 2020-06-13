@@ -11,10 +11,30 @@ class Actions extends React.Component {
   render() {
     return (
       <>
-        <ChoicesImages image={rock} name="rock" />
-        <ChoicesImages image={paper} name="paper" />
-        <ChoicesImages image={scissors} name="scissors" />
-        
+        <ChoicesImages
+          incrementDraw={this.props.incrementDraw}
+          incrementCpu={this.props.incrementCpu}
+          incrementUser={this.props.incrementUser}
+          outcome={this.props.outcome}
+          image={rock}
+          name="rock"
+        />
+        <ChoicesImages
+          incrementDraw={this.props.incrementDraw}
+          incrementCpu={this.props.incrementCpu}
+          incrementUser={this.props.incrementUser}
+          outcome={this.props.outcome}
+          image={paper}
+          name="paper"
+        />
+        <ChoicesImages
+          incrementDraw={this.props.incrementDraw}
+          incrementCpu={this.props.incrementCpu}
+          incrementUser={this.props.incrementUser}
+          outcome={this.props.outcome}
+          image={scissors}
+          name="scissors"
+        />
       </>
     );
   }

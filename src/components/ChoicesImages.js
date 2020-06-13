@@ -1,14 +1,11 @@
 import React from "react";
 
 const choices = ["rock", "paper", "scissors"];
-// const cpuChoice = choices[Math.floor(Math.random() * choices.length)];
-
-// If I use line 3 & 4 in the global scope the function below flops. When used locally it works. Why?
 
 class ChoicesImages extends React.Component {
   constructor(props) {
     super(props);
-    this.handleChoice = this.handleChoice.bind(this);
+    // this.handleChoice = this.handleChoice.bind(this);
   }
 
   handleChoice = () => {
@@ -17,15 +14,22 @@ class ChoicesImages extends React.Component {
     const cpuChoice = choices[Math.floor(Math.random() * choices.length)];
 
     if (name === cpuChoice) {
-      console.log(`Player: ${name}. CPU: ${cpuChoice} DRAW.`); // draw works.
-      // this.setState(this.props.userScore = this.props.userScore + 1) --> How can I change the state?
+        console.log(`Player: ${name}. CPU: ${cpuChoice} DRAW.`);
+        
+     return this.props.incrementDraw()
+      
     } else if (
       (name === "rock" && cpuChoice === "scissors") ||
       (name === "paper" && cpuChoice === "rock") ||
       (name === "scissors" && cpuChoice === "paper")
     ) {
       console.log(`Player: ${name}. CPU: ${cpuChoice} WIN.`);
+
+     return this.props.incrementUser();
     } else console.log(`Player: ${name}. CPU: ${cpuChoice} LOSE.`);
+  return  this.props.incrementCpu();
+
+
   };
 
   // Depending on the outcome of the duel, a message needs to be displayed (win? loss? draw?)
@@ -40,3 +44,4 @@ class ChoicesImages extends React.Component {
 }
 
 export default ChoicesImages;
+
