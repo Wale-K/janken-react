@@ -5,8 +5,9 @@ import Actions from "./components/Actions";
 import Message from "./components/DuelMessage";
 import ResetButton from "./components/ResetButton";
 import DuelOutcome from "./components/DuelOutcome";
-
 import "./App.css";
+
+const choices = ["rock", "paper", "scissors"];
 
 class App extends React.Component {
   constructor(props) {
@@ -15,28 +16,54 @@ class App extends React.Component {
       userScore: 0,
       cpuScore: 0,
       draw: 0,
-      outcome: "Click on an image to begin the game.",
+      outcome: "",
     };
     this.incrementUserScore = this.incrementUserScore.bind(this);
     this.incrementCpuScore = this.incrementCpuScore.bind(this);
     this.incrementDraw = this.incrementDraw.bind(this);
     this.reset = this.reset.bind(this);
+    // this.handleChoice = this.handleChoice.bind(this);
   }
-  incrementUserScore = () => {
+
+  incrementUserScore = (option) => {
+    const rockVictory = "You win! Rock crushes scissors!";
+    const paperVictory = "You win! Paper wraps rock!";
+    const scissorsVictory = "You win! Scissors cuts paper!";
+    let message = "";
+    if (option === "rock") {
+      message = rockVictory;
+    }
+    if (option === "paper") {
+      message = paperVictory;
+    }
+    if (option === "scissors") {
+      message = scissorsVictory;
+    }
     this.setState((state) => {
-      return { userScore: state.userScore + 1, outcome: "You win!" };
+      return { userScore: state.userScore + 1, outcome: message };
     });
   };
 
   // You lose! Rock is wrapped by paper!
 
+  incrementCpuScore = (option) => {
+    const rockDefeat = "You lose! Rock is wrapped by paper!";
+    const paperDefeat = "You lose! Paper is cut by scissors!";
+    const scissorsDefeat = "You lose! Scissors is crushed by rock!";
+    let message = "";
+    if (option === "rock") {
+      message = rockDefeat
+    }
+    if (option === "paper") {
+      message = paperDefeat
+    }
+    if (option === "scissors") {
+      message = scissorsDefeat
+    }
 
 
-
-
-  incrementCpuScore = () => {
     this.setState((state) => {
-      return { cpuScore: state.cpuScore + 1, outcome: "You lose!" };
+      return { cpuScore: state.cpuScore + 1, outcome: message };
     });
   };
 
@@ -48,7 +75,12 @@ class App extends React.Component {
 
   reset = () => {
     this.setState((state) => {
-      return { userScore: 0, cpuScore: 0, draw: 0, outcome: "Click on an image to begin the game." }; // refactor this?
+      return {
+        userScore: 0,
+        cpuScore: 0,
+        draw: 0,
+        outcome: "Click on an image to begin the game.",
+      }; // refactor this?
     });
   };
 

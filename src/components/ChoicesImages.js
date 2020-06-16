@@ -14,7 +14,6 @@ class ChoicesImages extends React.Component {
     const cpuChoice = choices[Math.floor(Math.random() * choices.length)];
 
     if (name === cpuChoice) {
-        console.log(`Player: ${name}. CPU: ${cpuChoice} DRAW.`);
         
      return this.props.incrementDraw()
       
@@ -23,13 +22,10 @@ class ChoicesImages extends React.Component {
       (name === "paper" && cpuChoice === "rock") ||
       (name === "scissors" && cpuChoice === "paper")
     ) {
-      console.log(`Player: ${name}. CPU: ${cpuChoice} WIN.`);
-
-     return this.props.incrementUser();
-    } else console.log(`Player: ${name}. CPU: ${cpuChoice} LOSE.`);
-  return  this.props.incrementCpu();
-
-
+     return this.props.incrementUser(name);
+     
+    } else
+  return  this.props.incrementCpu(name);
   };
 
   // Depending on the outcome of the duel, a message needs to be displayed (win? loss? draw?)
