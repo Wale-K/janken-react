@@ -1,7 +1,15 @@
 import React from "react";
+import styled from "styled-components";
+
+const ResetButtonStyle = styled.button`
+border: solid #29274C;
+border-radius: 5px;
+font-size: 24px;
+background-color: #D295BF;
+`
 
 const ResetButton = (props) => {
-  return <button onClick={props.reset}>Reset</button>;
+  return <ResetButtonStyle onClick={props.reset}>Reset</ResetButtonStyle>;
 }
 
 export default ResetButton;

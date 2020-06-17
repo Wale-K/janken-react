@@ -1,13 +1,24 @@
 import React from "react";
 import TitleBar from "./components/TitleBar";
 import ScoreBoard from "./components/ScoreBoard";
-import {Actions} from "./components/Actions";
+import { Actions } from "./components/Actions";
 import Message from "./components/DuelMessage";
 import ResetButton from "./components/ResetButton";
 import DuelOutcome from "./components/DuelOutcome";
 import "./App.css";
+import styled from "styled-components";
 
 const choices = ["rock", "paper", "scissors"];
+
+const Container = styled.div`
+  h1 {
+    background-color: #29274c;
+  }
+  background-color: #7E52A0;
+  
+  color: #E6BCCD;
+
+`;
 
 class App extends React.Component {
   constructor(props) {
@@ -22,7 +33,6 @@ class App extends React.Component {
     this.incrementCpuScore = this.incrementCpuScore.bind(this);
     this.incrementDraw = this.incrementDraw.bind(this);
     this.reset = this.reset.bind(this);
-    // this.handleChoice = this.handleChoice.bind(this);
   }
 
   incrementUserScore = (option) => {
@@ -44,23 +54,20 @@ class App extends React.Component {
     });
   };
 
-  // You lose! Rock is wrapped by paper!
-
   incrementCpuScore = (option) => {
     const rockDefeat = "You lose! Rock is wrapped by paper!";
     const paperDefeat = "You lose! Paper is cut by scissors!";
     const scissorsDefeat = "You lose! Scissors is crushed by rock!";
     let message = "";
     if (option === "rock") {
-      message = rockDefeat
+      message = rockDefeat;
     }
     if (option === "paper") {
-      message = paperDefeat
+      message = paperDefeat;
     }
     if (option === "scissors") {
-      message = scissorsDefeat
+      message = scissorsDefeat;
     }
-
 
     this.setState((state) => {
       return { cpuScore: state.cpuScore + 1, outcome: message };
@@ -87,7 +94,7 @@ class App extends React.Component {
   render() {
     // console.log(this.state.userScore);
     return (
-      <div className="App">
+      <Container>
         <TitleBar />
         <ScoreBoard
           userScore={this.state.userScore}
@@ -103,7 +110,7 @@ class App extends React.Component {
         />
         <Message />
         <ResetButton reset={this.reset} />
-      </div>
+      </Container>
     );
   }
 }
