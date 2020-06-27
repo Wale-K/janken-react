@@ -13,11 +13,11 @@ const choices = ["rock", "paper", "scissors"];
 const Container = styled.div`
   h1 {
     background-color: #29274c;
+    margin-top: 0;
   }
-  background-color: #7E52A0;
-  
-  color: #E6BCCD;
+  background-color: #7e52a0;
 
+  color: #e6bccd;
 `;
 
 class App extends React.Component {
@@ -27,7 +27,8 @@ class App extends React.Component {
       userScore: 0,
       cpuScore: 0,
       draw: 0,
-      outcome: "",
+      outcome: "Click on an image to begin the game.",
+      
     };
     this.incrementUserScore = this.incrementUserScore.bind(this);
     this.incrementCpuScore = this.incrementCpuScore.bind(this);
@@ -100,6 +101,7 @@ class App extends React.Component {
           userScore={this.state.userScore}
           cpuScore={this.state.cpuScore}
           draw={this.state.draw}
+          
         />
         <DuelOutcome outcome={this.state.outcome} />
         <Actions

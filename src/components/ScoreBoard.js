@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-
 const ScoreBoardBorder = styled.div`
   border: solid #012a36;
   border-radius: 10px;
@@ -11,8 +10,6 @@ const ScoreBoardBorder = styled.div`
   margin: 0 auto;
   padding: 10px;
 `;
-
-
 
 const Fifty = styled.div`
 font-size 50px;

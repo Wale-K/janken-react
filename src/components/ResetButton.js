@@ -6,6 +6,8 @@ border: solid #29274C;
 border-radius: 5px;
 font-size: 24px;
 background-color: #D295BF;
+float: right;
+margin-right: 20px
 `
 
 const ResetButton = (props) => {

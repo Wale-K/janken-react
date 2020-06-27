@@ -1,7 +1,14 @@
 import React from "react";
+import styled from "styled-components";
+
+const MessageStyle = styled.p`
+text-align: center;
+font-size: 40px;
+
+`
 
 const Message = () => {
-  return <p>It's time to d-d-d-d-d-d-d-d-duel!</p>;
+  return <MessageStyle>It's time to d-d-d-d-d-d-d-d-duel!</MessageStyle>;
 };
 
 export default Message;

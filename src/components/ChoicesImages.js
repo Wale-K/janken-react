@@ -6,6 +6,8 @@ const ChoicesImagesButton = styled.button`
   border-radius: 100px;
   background-color: transparent;
   outline: none;
+  margin: 0 auto;
+
 `;
 
 const ChoicesImagesImg = styled.img`
@@ -37,5 +39,7 @@ export const ChoicesImages = (props) => {
     <ChoicesImagesButton onClick={handleChoice}>
       <ChoicesImagesImg src={props.image} alt={props.name} />
     </ChoicesImagesButton>
+    
+    
   );
 };
