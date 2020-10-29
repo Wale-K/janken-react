@@ -7,14 +7,16 @@ const ChoicesImagesButton = styled.button`
   background-color: transparent;
   outline: none;
   margin: 0 auto;
-
 `;
 
 const ChoicesImagesImg = styled.img`
-height: 100px;
-width: 100px;
-padding: 0px;
-`
+  height: 100px;
+  width: 100px;
+  padding: 0px;
+  :hover {
+    cursor: pointer;
+  }
+`;
 
 const choices = ["rock", "paper", "scissors"];
 
@@ -39,7 +41,5 @@ export const ChoicesImages = (props) => {
     <ChoicesImagesButton onClick={handleChoice}>
       <ChoicesImagesImg src={props.image} alt={props.name} />
     </ChoicesImagesButton>
-    
-    
   );
 };

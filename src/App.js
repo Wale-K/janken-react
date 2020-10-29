@@ -8,8 +8,6 @@ import DuelOutcome from "./components/DuelOutcome";
 import "./App.css";
 import styled from "styled-components";
 
-const choices = ["rock", "paper", "scissors"];
-
 const Container = styled.div`
   h1 {
     background-color: #29274c;
@@ -28,7 +26,6 @@ class App extends React.Component {
       cpuScore: 0,
       draw: 0,
       outcome: "Click on an image to begin the game.",
-      
     };
     this.incrementUserScore = this.incrementUserScore.bind(this);
     this.incrementCpuScore = this.incrementCpuScore.bind(this);
@@ -82,18 +79,15 @@ class App extends React.Component {
   };
 
   reset = () => {
-    this.setState((state) => {
-      return {
-        userScore: 0,
-        cpuScore: 0,
-        draw: 0,
-        outcome: "Click on an image to begin the game.",
-      }; // refactor this?
+    this.setState({
+      userScore: 0,
+      cpuScore: 0,
+      draw: 0,
+      outcome: "Click on an image to begin the game.",
     });
   };
 
   render() {
-    // console.log(this.state.userScore);
     return (
       <Container>
         <TitleBar />
@@ -101,7 +95,6 @@ class App extends React.Component {
           userScore={this.state.userScore}
           cpuScore={this.state.cpuScore}
           draw={this.state.draw}
-          
         />
         <DuelOutcome outcome={this.state.outcome} />
         <Actions
